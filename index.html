@@ -10,7 +10,7 @@
     <title>Weather API</title>
 </head>
 
-<body class="flex-column min-100-vh">
+<body class="jumbotron jumbotron-fluid">
     <header id="dashboard" class="container">
         <h1 class="display-6 text-center py-2">Weather Dashboard</h1>
     </header>
@@ -20,22 +20,45 @@
     <div class="col-3">
     <div class="bg-white py-2" id="left-column">
         <h3 class="card-header text-uppercase">Search By City</h3>
-        <form id="city-form" class="card-body"></form>
-        <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input"/>
-        <button type="submit" class="btn">Search</button>
+            <form id="city-form" class="card-body"></form>
+                <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input"/>
+                <button type="submit" class="btn search-button" id="searchbtn">Search</button>
         <!--SPACE TO HOLD PRIOR CITIES-->
         <div id="city-container" class="list-group"></div>
     </div>
     </div>
 
     <!--CURRENT CITY TEMP / STATS -->
-    <div class="col-lg-9">
-        <div id="current-city" class=""></div>
+    <div class="col-9">
+        <div class="row border">
+            <div class="col-12 p-3 pt-2" id="cityWeather">
+                <div class="row">
+                    <div class="col-12 py-3" id="city"></div>
+                </div>
+                <div class="row">
+                    <div class="col-12 py-3">Temperature: <span id="temperature"></span></div>
+                </div>
+                <div class="row">
+                    <div class="col-12 py-3">Humidity: <span id="humidity"></span></div>
+                </div>
+                <div class="row">
+                    <div class="col-12 py-3">UV Index: <span id="uvIndex"></span></div>
+                </div>
+                <div class="row">
+                    <div class="col-12 py-3">Wind: <span id="wind"></span></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!--5 DAY FORECAST-->
     <div class="container my-3 pb-4" id="forecast">
-        <h2 class="subtitle">5 Day Forecast:<span id="city-search-term"></span></h2>
+        <div class="container mx-auto">
+            <div class="row">
+                <h2 class="subtitle">5 Day Forecast:<span id="city-search-term"></span></h2>
+            </div>
+            <div class="row" id="forecast-container"></div>
+        </div>
     </div>
     </main>
     
