@@ -6,6 +6,7 @@ var cityFormElement = document.querySelector("#city-form");
 var cityInputElement = document.querySelector("#cityname");
 var cityContainerElement = document.querySelector("#city-container");
 var  citySearchTerm = document.querySelector("#city-search-term");
+const apiKEY = "e67b161ec4b0a06c7be80ec0f1213f7c";
 
 var currentDate = function() {
     var currentDay = moment().format("dddd, MMMM Do YYYY");
@@ -33,7 +34,7 @@ var formSubmitHandler = function(event) {
 
 var getCityName = function (city) {
     // FORMAT WEATHER API
-    var apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + "e67b161ec4b0a06c7be80ec0f1213f7c"
+    var apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKEY;
 
     cityInputElement.innerHTML = city + ' ' + currentDate();
     console.log(apiURL);
