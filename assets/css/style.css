@@ -35,8 +35,12 @@ h1 {
     box-shadow: 2px 2px coral;
 }
 
-.dashboard {
+.btn-primary::first-letter {
+    text-transform: capitalize;
+}
 
+#city::first-letter {
+    text-transform: capitalize;
 }
 
 .app-title {
