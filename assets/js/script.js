@@ -182,9 +182,7 @@ var removeForecast = function() {
 var searchBtn = document.getElementById("searchbtn");
 searchBtn.addEventListener("click", function() {
     var cityInputElement = document.getElementById("cityname");
-    var cityElement = {
-        cityName: cityInputElement.value
-    };
+    var cityElement = {cityName: cityInputElement.value};
     saveCity(cityElement); 
     getCityName();
     addHistory(cityElement.cityName);
