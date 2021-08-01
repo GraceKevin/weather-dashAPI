@@ -37,6 +37,8 @@ h1 {
 header {
     background-image: linear-gradient(to right, #0099ff, #9933ff);
     color: ghostwhite;
+    text-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    display: flex;
 }
 
 .btn:hover {
@@ -45,20 +47,15 @@ header {
     box-shadow: 2px 2px #04619e;
 }
 
-.btn-primary::first-letter {
-    text-transform: capitalize;
-}
-
 .btn-primary {
     position: relative;
-}
-
-#city::first-letter {
     text-transform: capitalize;
 }
+
 
 #city {
     font-weight: bolder;
+    text-transform: capitalize;
 }
 
 .app-title {

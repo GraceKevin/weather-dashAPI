@@ -1,4 +1,5 @@
 // https://www.youtube.com/watch?v=f__x1VofV2Q //  https://github.com/Tom0901/Weather-App
+// 
 // file:///Users/Kevin/Desktop/Class-Projects/git-it-done/index.html
 // weather API   -      api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}  
 //  e67b161ec4b0a06c7be80ec0f1213f7c
@@ -12,6 +13,15 @@ var wind = document.getElementById("wind");
 var humidity = document.getElementById("humidity");
 var forecastContainer = document.getElementById("forecast-container")
 const apiKEY = "e67b161ec4b0a06c7be80ec0f1213f7c";
+
+// Add Function for search on enter key
+document.getElementById("cityname")
+    .addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if ( event.keyCode === 13) {
+            document.getElementById("searchbtn").click();
+        }
+});
 
 // Functions
 
@@ -234,6 +244,7 @@ var priorCity = function (cityName) {
     priorCityBtn.setAttribute('class', 'btn-primary');
     priorCityBtn.setAttribute("style", "background-color: grey");
     priorCityBtn.innerHTML = cityName;
+    
     console.log(priorCityBtn);
    
     priorCityBtn.addEventListener("click", function(){
