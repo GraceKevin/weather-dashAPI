@@ -113,12 +113,12 @@ var getForecast = function(city) {
                      forecastDate.innerHTML = moment().add(dayCount, "days").format("M/D/YYYY")
                      var icon = document.createElement("img")
                      icon.src = "https://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png"
-                     var tempForecast = document.createElement("p")
-                     tempForecast.classList.add("card-text")
-                     tempForecast.innerHTML = data.list[i].main.temp + " F"
-                     var humForecast = document.createElement("p")
-                     humForecast.classList.add('card-text')
-                     humForecast.innerHTML = "Humidity" + data.list[i].main.humidity
+                     var temperatureForecast = document.createElement("p")
+                     temperatureForecast.classList.add("card-text")
+                     temperatureForecast.innerHTML = data.list[i].main.temp + " F"
+                     var humidityForecast = document.createElement("p")
+                     humidityForecast.classList.add('card-text')
+                     humidityForecast.innerHTML = "Humidity" + data.list[i].main.humidity
                      var windForecast = document.createElement("p")
                      windForecast.classList.add('card-title')
                      windForecast.innerHTML = data.list[i].wind.speed + " MPH";
@@ -127,8 +127,8 @@ var getForecast = function(city) {
                      cardForecast.appendChild(cardBody);
                      cardBody.appendChild(forecastDate);
                      cardBody.appendChild(icon);
-                     cardBody.appendChild(tempForecast);
-                     cardBody.appendChild(humForecast);
+                     cardBody.appendChild(temperatureForecast);
+                     cardBody.appendChild(humidityForecast);
                      cardBody.appendChild(windForecast);
                     forecastContainer.appendChild(newColumn);
                     // ADD NUMBER OF DAYS
@@ -143,6 +143,18 @@ var getForecast = function(city) {
     .catch(function(error) {
         alert(error);
     });
+}
+
+// REMOVE PRIOR FORECAST DATA
+var removeForecast = function() {
+    newColumn.removeChild(cardForecast);
+    cardForecast.removeChild(cardBody);
+    cardBody.removeChild(forecastDate);
+    cardBody.removeChild(icon);
+    cardBody.removeChild(temperatureForecast);
+    cardBody.removeChild(humidityForecast);
+    cardBody.removeChild(windForecast);
+   forecastContainer.removeChild(newColumn);
 }
 
 var searchBtn = document.getElementById("searchbtn");
@@ -219,7 +231,8 @@ var priorCity = function (cityName) {
     priorCityBtn.classList.add("btn-center")
     priorCityBtn.id = "btn" + cityName;
     priorCityBtn.setAttribute("content", "past-city");
-    //priorCityBtn.setAttribute('class', 'btn-primary');
+    priorCityBtn.setAttribute('class', 'btn-primary');
+    priorCityBtn.setAttribute("style", "background-color: grey");
     priorCityBtn.innerHTML = cityName;
     console.log(priorCityBtn);
    
