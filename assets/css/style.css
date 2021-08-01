@@ -10,6 +10,10 @@ body {
     font-size: 16px;
 }
 
+.card-header {
+    font-size: 24px;
+}
+
 h1 {
     font-weight: 700;
     margin: 0;
@@ -17,13 +21,13 @@ h1 {
 }
 
 .btn {
-    background-color: dodgerblue;
+    background-color: #0099ff;
     color: ghostwhite;
     font-size: 1.3rem;
     padding: 5px 6px;
-    width: 215px;
+    width: 200px;
     display: block;
-    margin: 5px 5px;
+    margin: 10px 10px;
     border-radius: .3rem;
     border: none;
     outline: none;
@@ -45,8 +49,16 @@ header {
     text-transform: capitalize;
 }
 
+.btn-primary {
+    background-color: grey;
+}
+
 #city::first-letter {
     text-transform: capitalize;
+}
+
+#city {
+    font-weight: bolder;
 }
 
 .app-title {
@@ -72,8 +84,23 @@ header {
     text-transform: uppercase;
 }
 
+.card-body {
+    background-color: rgb(12, 77, 102);
+}
+
+.card-title {
+    color: snow;
+}
+
+.card-text {
+    color: snow;
+}
+
+/* BOOTSTRAP ASSIST */
+
+
 /* MEDIA QUERY FOR DESKTOP */
-@media screen and (max-width: 980px) {
+@media (max-width: 1200px) {
     header {
         padding: 0;
         justify-content: center;
@@ -86,4 +113,24 @@ header {
     main {
         text-align: left;
     }
+    .btn {
+        width: 175px;
+    }
+
+}
+
+@media (max-width: 992px) {
+    .btn {
+        width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .btn {
+        width: 100px;
+    }
+}
+
+@media (max-width: 576px) {
+
 }

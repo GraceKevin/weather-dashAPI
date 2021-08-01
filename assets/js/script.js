@@ -17,7 +17,7 @@ const apiKEY = "e67b161ec4b0a06c7be80ec0f1213f7c";
 
 // MOMENT.JS FOR DAILY REFERENCE
 var getCurrentDate = function(){
-    var currentDay = moment().format("dddd, MMMM Do YYYY");
+    var currentDay = moment().format('(L)');
     return currentDay;
 };
 
@@ -101,7 +101,7 @@ var getForecast = function(city) {
                 for (var i = 6; i < data.list.length; i += 8) {
                     var col = document.createElement('div')
                     col.classList.add("col-2")
-                    col.innerHTML = 'Hello'
+                    col.innerHTML = ''
                      var newColumn = document.createElement('div');
                      newColumn.classList.add("col-2");
                      var cardForecast = document.createElement("div")
@@ -143,7 +143,7 @@ var getForecast = function(city) {
     .catch(function(error) {
         alert(error);
     });
-    }
+}
 
 var searchBtn = document.getElementById("searchbtn");
 searchBtn.addEventListener("click", function() {
@@ -155,10 +155,6 @@ searchBtn.addEventListener("click", function() {
     getCityName();
     addHistory(cityElement.cityName);
 });
-
-
-
-
 
 // LOCAL STORAGE
 var saveCity = function(cityElement) {
@@ -185,7 +181,7 @@ var saveCity = function(cityElement) {
     }
 };
 
-//get data from local storage
+// PULL FROM  LOCAL STORAGE
 var getCityData = function(){
     var result
     if (localStorage.getItem("cityData") == null) {
@@ -194,13 +190,10 @@ var getCityData = function(){
         result = newArray;
     } 
     else {
-        //array already exists in storage
          result = JSON.parse(localStorage.getItem("cityData"))
     }
     return result;
 };
-
-
 
 var findCity = function() {
     var myCityData = getCityData();
@@ -226,7 +219,7 @@ var priorCity = function (cityName) {
     priorCityBtn.classList.add("btn-center")
     priorCityBtn.id = "btn" + cityName;
     priorCityBtn.setAttribute("content", "past-city");
-    priorCityBtn.setAttribute('class', 'btn-primary');
+    //priorCityBtn.setAttribute('class', 'btn-primary');
     priorCityBtn.innerHTML = cityName;
     console.log(priorCityBtn);
    
