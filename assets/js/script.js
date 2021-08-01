@@ -67,7 +67,7 @@ var getCurrentWeather = function(city) {
     .catch(function(error) {
         alert('Unable to get weather');
     });
-    getForecast(city);
+    getForecast(city);    
 };
 
 // PULL UV DATA WITH LAT/LONG
@@ -133,6 +133,8 @@ var getForecast = function(city) {
                      windForecast.classList.add('card-title')
                      windForecast.innerHTML = data.list[i].wind.speed + " MPH";
 
+                     newColumn.innerHTML = "";
+
                      newColumn.appendChild(cardForecast);
                      cardForecast.appendChild(cardBody);
                      cardBody.appendChild(forecastDate);
@@ -141,8 +143,10 @@ var getForecast = function(city) {
                      cardBody.appendChild(humidityForecast);
                      cardBody.appendChild(windForecast);
                     forecastContainer.appendChild(newColumn);
+
                     // ADD NUMBER OF DAYS
                     dayCount++;
+                    
                 }
             })
         } 
@@ -176,6 +180,7 @@ searchBtn.addEventListener("click", function() {
     saveCity(cityElement); 
     getCityName();
     addHistory(cityElement.cityName);
+
 });
 
 // LOCAL STORAGE
