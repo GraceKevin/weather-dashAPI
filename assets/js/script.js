@@ -21,6 +21,7 @@ document.getElementById("cityname")
         if ( event.keyCode === 13) {
             document.getElementById("searchbtn").click();
         }
+        //removeForecast();
 });
 
 // Functions
@@ -41,10 +42,12 @@ var getCityName = function() {
     else {
         alert("Enter a valid city please");
     }
+    //removeForecast();
 }
 
 // PULL CURRENT DAY WEATHER
 var getCurrentWeather = function(city) {
+
     // SET WEATHER API  FOR CURRENT WEATHER OUTLOOK
     var apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKEY;
     cityFormElement.innerHTML = city + ' ' + getCurrentDate();
@@ -133,8 +136,6 @@ var getForecast = function(city) {
                      windForecast.classList.add('card-title')
                      windForecast.innerHTML = data.list[i].wind.speed + " MPH";
 
-                     newColumn.innerHTML = "";
-
                      newColumn.appendChild(cardForecast);
                      cardForecast.appendChild(cardBody);
                      cardBody.appendChild(forecastDate);
@@ -162,6 +163,13 @@ var getForecast = function(city) {
 // REMOVE PRIOR FORECAST DATA
 var removeForecast = function() {
     newColumn.removeChild(cardForecast);
+    newColumn.classList.remove("col-2");
+    cardForecast.classList.remove("card");
+    cardBody.classList.remove("card-body")
+    forecastDate.classList.remove("card-title")
+    temperatureForecast.classList.remove("card-text")
+    windForecast.classList.remove('card-title')
+    col.classList.remove("col-2")
     cardForecast.removeChild(cardBody);
     cardBody.removeChild(forecastDate);
     cardBody.removeChild(icon);
@@ -180,7 +188,7 @@ searchBtn.addEventListener("click", function() {
     saveCity(cityElement); 
     getCityName();
     addHistory(cityElement.cityName);
-
+    //removeForecast();
 });
 
 // LOCAL STORAGE
@@ -260,4 +268,5 @@ var priorCity = function (cityName) {
     newRow.appendChild(col);
     col.appendChild(priorCityBtn);
     cityContainer.appendChild(newRow);
+    //removeForecast();
 }
